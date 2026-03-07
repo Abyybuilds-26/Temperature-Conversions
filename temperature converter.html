@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <title>Temperature Conversion</title>
+    </head>
+    <body>
+        <h1>Welcome to OnlineConversion.com</h1>
+        <h5>Temperature Conversion</h5>
+
+        <form action="" name="form">
+            <label>Convert what quantity?</label>
+            <input type="text" name="value"
+            id="input__value"><br><br>
+
+            <label>From</label>
+            <select name="input" id="input">
+                <option value="Celsius">Degree Celsius</option>
+                <option value="Fahrenheit">Degree Fahrenheit</option>
+            </select>
+
+            <label>To</label>
+            <select name="input" id="output">
+                <option value="Celsius">Degree Celsius</option>
+                <option value="Fahrenheit">Degree Fahrenheit</option>
+            </select> <br><br>
+            <button type="button"  id="convert" onclick="convertTemperature()">convert
+            </button><br><br>
+
+            <label id="label"></label>
+        </form>
+
+        <script>
+            function convertTemperature()
+            {
+                let val=document.getElementById("input__value");
+                let input=document.getElementById("input");
+                let output=document.getElementById("output");
+                let label=document.getElementById("label");
+
+                let inputvalue=input.value;
+                let outputvalue=output.value;
+                let inputNumber=Number(val.value);
+                let result;
+
+                if(inputvalue==="Celsius" && outputvalue==="Fahrenheit")
+            {
+                result=(9/5*inputNumber)+32;
+            }
+            else if(inputvalue==="Celsius" && outputvalue==="Celsius")
+            {
+                result=inputNumber
+            }
+            else if(inputvalue==="Fahrenheit" && outputvalue==="Celsius"){
+                result=(inputNumber-32)*5/9;
+            }
+            else if(inputvalue==="Fahrenheit" && outputvalue==="Fahrenheit")
+            {
+                result=inputNumber;
+            }
+            label.innerHTML=result.toFixed(2);
+            }
+        </script>
+    </body>
+  </html>
